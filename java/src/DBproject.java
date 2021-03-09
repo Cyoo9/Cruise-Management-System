@@ -297,8 +297,9 @@ public class DBproject{
 
 	public static void AddShip(DBproject esql) {//1
 		try {
-			String shipid, shipmake, shipmodel, shipage, shipseats; 
-			String query = "INSERT INTO Ship (id, make, model, age, seats) VALUES (' + shipid + ',' + shipmake + ',' + shipmodel + ',' shipage + ',' + shipseats + ')';
+			int shipid, shipage, shipseats;
+			String shipmake, shipmodel;
+			
 			System.out.print("\tEnter ship id: "); 
 			shipid = in.readline(); 
 			
@@ -314,6 +315,7 @@ public class DBproject{
 			System.out.print("\tEnter number of seats: ");
 			shipseats = in.readline();
 			
+			String query = "INSERT INTO Ship (id, make, model, age, seats) VALUES (" + shipid + ',' + shipmake + ',' + shipmodel + ',' shipage + ',' + shipseats + ')';
 			esql.executeQuery(query);  //insert the ship
 			System.out.println("Ship inserted successfully!"); 
 			
