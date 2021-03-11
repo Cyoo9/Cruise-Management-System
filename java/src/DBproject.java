@@ -325,9 +325,66 @@ public class DBproject{
 	} //end AddShip
 
 	public static void AddCaptain(DBproject esql) {//2
+		try {
+			int capId; 
+			String capName, capNation; 
+			System.out.print("\tEnter captain id: ");
+			capId = in.readline();
+			
+			System.out.print("\tEnter captain name: ");
+			capName = in.readline();
+			
+			System.out.print("\tEnter captain nationality: ");
+			capNation = in.readline(); 
+			
+			String query = "INSERT INTO Captain (id, fullname, nationality) VALUES (" + capId + ',' + capName + ',' + capNation + ')';
+			esql.executeQuery(query);
+			System.out.println("Captain inserted successfully!"); 
+		} catch (Exception e) {
+			System.err.println(e.getMessage()); 
+		}
+		//end AddCaptain
 	}
 
 	public static void AddCruise(DBproject esql) {//3
+		try {
+			int cruiseNum, cruiseCost, cruiseSold, cruiseStops;
+			String depDate, arrDate, month, day, year, arrPort, depPort;
+			System.out.print("\tEnter cruise number: ");
+			cruiseNum = in.readline();
+			
+			System.out.print("\tEnter cruise cost: ");
+			cruiseCost = in.readline(); 
+			while(!(cruiseCost > 0)) { 
+				System.out.print("\tCruise cost can't be 0 or negative. Enter correct cost: ");
+				cruiseCost = in.readline(); 
+			}
+			
+			System.out.print("\tEnter cruises sold: "); 
+			cruiseSold = in.readline();
+			while(!(cruiseSold >= 0) {
+				System.out.print("\tCruises sold must be positive. Enter correct cruises sold: "); 
+				cruiseSold = in.readline(); 
+			}
+			      
+			System.out.print("\tEnter departure year: ");
+			year = in.readline(); 
+			System.out.print("\tEnter departure month: "); 
+			month = in.readline(); 
+			while(!(month >= 1 && month <= 12) {
+				System.out.print("\t Months must be between 1 and 12. Enter correct month: ");
+				month = in.readline();
+			}
+			System.out.print("\tEnter departure day: "); 
+			day = in.readline(); 
+			while(!(day >= 1 && day <= 31) {
+				System.out.print("\t Days must be between 1 and 31. Enter correct day: "); 
+				day = in.readline(); 
+			}
+		}
+		catch (Exception e) {
+			System.err.println(e.getMessage()); 
+		}
 	}
 
 
