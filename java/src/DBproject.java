@@ -375,12 +375,42 @@ public class DBproject{
 				System.out.print("\t Months must be between 1 and 12. Enter correct month: ");
 				month = in.readline();
 			}
+			      
 			System.out.print("\tEnter departure day: "); 
 			day = in.readline(); 
 			while(!(day >= 1 && day <= 31) {
 				System.out.print("\t Days must be between 1 and 31. Enter correct day: "); 
 				day = in.readline(); 
 			}
+			depDate = year + '-' + month + '-' + day; 
+			      
+			System.out.print("\tEnter arrival year: ");
+			year = in.readline(); 
+			System.out.print("\tEnter arrival month: "); 
+			month = in.readline(); 
+			while(!(month >= 1 && month <= 12) {
+				System.out.print("\t Months must be between 1 and 12. Enter correct month: ");
+				month = in.readline();
+			}
+			      
+			System.out.print("\tEnter arrival day: "); 
+			day = in.readline(); 
+			while(!(day >= 1 && day <= 31) {
+				System.out.print("\t Days must be between 1 and 31. Enter correct day: "); 
+				day = in.readline(); 
+			}
+			      
+			arrDate = year + '-' + month + '-' + day; 
+			      
+			System.out.print("\tEnter arrival port: ");
+			arrPort = in.readline(); 
+			
+			System.out.print("\t Enter departure port: "); 
+			depPort = in.readline(); 
+			      
+			String query = "INSERT INTO Cruise (cnum, cost, num_sold, num_stops, actual_departure_date, actual_arrival_date, arrival_port, departure_port) VALUES (" + cruiseNum + ',' + cruiseCost + ',' + cruiseSold + ',' + cruiseStops + ',' + depDate + ',' + arrDate + ',' + arrPort + ',' + depPort + ')';
+			esql.executeQuery(query);
+			System.out.print("Cruise inserted successfully"); 
 		}
 		catch (Exception e) {
 			System.err.println(e.getMessage()); 
