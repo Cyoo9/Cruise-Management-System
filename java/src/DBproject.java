@@ -367,7 +367,10 @@ public class DBproject{
 				System.out.print("\tCruises sold must be positive. Enter correct cruises sold: "); 
 				cruiseSold = Integer.parseInt(in.readLine()); 
 			}
-			      
+			     
+			System.out.print("\tEnter cruise stops: ");
+			cruiseStops = Integer.parseInt(in.readLine());
+			 
 			System.out.print("\tEnter departure year: ");
 			year = Integer.parseInt(in.readLine()); 
 			System.out.print("\tEnter departure month: "); 
@@ -383,7 +386,7 @@ public class DBproject{
 				System.out.print("\t Days must be between 1 and 31. Enter correct day: "); 
 				day = Integer.parseInt(in.readLine()); 
 			}
-			depDate = year + '-' + month + '-' + toString(day); 
+			depDate = year + '-' + month + '-' + day + ""; 
 			      
 			System.out.print("\tEnter arrival year: ");
 			year = Integer.parseInt(in.readLine()); 
@@ -401,7 +404,7 @@ public class DBproject{
 				day = Integer.parseInt(in.readLine()); 
 			}
 			      
-			arrDate = year + '-' + month + '-' + toString(day); 
+			arrDate = year + '-' + month + '-' + day + ""; 
 			      
 			System.out.print("\tEnter arrival port: ");
 			arrPort = in.readLine(); 
