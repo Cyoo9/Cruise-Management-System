@@ -337,7 +337,7 @@ public class DBproject{
 			System.out.print("\tEnter captain nationality: ");
 			capNation = in.readLine(); 
 			
-			String query = "INSERT INTO Captain (id, fullname, nationality) VALUES (" + capId + ",'" + capName + "','" + capNation + ')';
+			String query = "INSERT INTO Captain (id, fullname, nationality) VALUES (" + capId + ",'" + capName + "','" + capNation + "')";
 			esql.executeQuery(query);
 			System.out.println("Captain inserted successfully!"); 
 		} catch (Exception e) {
@@ -348,8 +348,7 @@ public class DBproject{
 
 	public static void AddCruise(DBproject esql) {//3
 		try {
-			int cruiseNum, cruiseSold, cruiseStops, month, day, year;
-			double cruiseCost;
+			int cruiseNum, cruiseSold, cruiseStops, month, year, day, cruiseCost;
 			String depDate, arrDate, arrPort, depPort;
 			System.out.print("\tEnter cruise number: ");
 			cruiseNum = Integer.parseInt(in.readLine());
@@ -412,7 +411,7 @@ public class DBproject{
 			System.out.print("\t Enter departure port: "); 
 			depPort = in.readLine(); 
 			      
-			String query = "INSERT INTO Cruise (cnum, cost, num_sold, num_stops, actual_departure_date, actual_arrival_date, arrival_port, departure_port) VALUES (" + cruiseNum + ',' + cruiseCost + ',' + cruiseSold + ',' + cruiseStops + ",'" + depDate + "','" + arrDate + "','" + arrPort + "','" + depPort + "')'";
+			String query = "INSERT INTO Cruise (cnum, cost, num_sold, num_stops, actual_departure_date, actual_arrival_date, arrival_port, departure_port) VALUES (" + cruiseNum + ',' + cruiseCost + ',' + cruiseSold + ',' + cruiseStops + ",'" + depDate + "','" + arrDate + "','" + arrPort + "','" + depPort + "')"; 
 			esql.executeQuery(query);
 			System.out.print("Cruise inserted successfully"); 
 		}
