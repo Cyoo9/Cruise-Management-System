@@ -301,21 +301,21 @@ public class DBproject{
 			String shipmake, shipmodel;
 			
 			System.out.print("\tEnter ship id: "); 
-			shipid = in.readline(); 
+			shipid = Integer.parseInt(in.readLine()); 
 			
 			System.out.print("\tEnter ship make: ");
-			shipmake = in.readline();
+			shipmake = in.readLine();
 	
 			System.out.print("\tEnter ship model: ");
-			shipmodel = in.readline();
+			shipmodel = in.readLine();
 			
 			System.out.print("\tEnter ship age: ");
-			shipage = in.readline();
+			shipage = Integer.parseInt(in.readLine());
 			
 			System.out.print("\tEnter number of seats: ");
-			shipseats = in.readline();
+			shipseats = Integer.parseInt(in.readLine());
 			
-			String query = "INSERT INTO Ship (id, make, model, age, seats) VALUES (" + shipid + ',' + shipmake + ',' + shipmodel + ',' shipage + ',' + shipseats + ')';
+			String query = "INSERT INTO Ship (id, make, model, age, seats) VALUES (" + shipid + ',' + shipmake + ',' + shipmodel + ',' + shipage + ',' + shipseats + ')';
 			esql.executeQuery(query);  //insert the ship
 			System.out.println("Ship inserted successfully!"); 
 			
@@ -329,13 +329,13 @@ public class DBproject{
 			int capId; 
 			String capName, capNation; 
 			System.out.print("\tEnter captain id: ");
-			capId = in.readline();
+			capId = Integer.parseInt(in.readLine());
 			
 			System.out.print("\tEnter captain name: ");
-			capName = in.readline();
+			capName = in.readLine();
 			
 			System.out.print("\tEnter captain nationality: ");
-			capNation = in.readline(); 
+			capNation = in.readLine(); 
 			
 			String query = "INSERT INTO Captain (id, fullname, nationality) VALUES (" + capId + ',' + capName + ',' + capNation + ')';
 			esql.executeQuery(query);
@@ -348,65 +348,66 @@ public class DBproject{
 
 	public static void AddCruise(DBproject esql) {//3
 		try {
-			int cruiseNum, cruiseCost, cruiseSold, cruiseStops;
-			String depDate, arrDate, month, day, year, arrPort, depPort;
+			int cruiseNum, cruiseSold, cruiseStops, month, day, year;
+			double cruiseCost;
+			String depDate, arrDate, arrPort, depPort;
 			System.out.print("\tEnter cruise number: ");
-			cruiseNum = in.readline();
+			cruiseNum = Integer.parseInt(in.readLine());
 			
 			System.out.print("\tEnter cruise cost: ");
-			cruiseCost = in.readline(); 
+			cruiseCost = Integer.parseInt(in.readLine()); 
 			while(!(cruiseCost > 0)) { 
 				System.out.print("\tCruise cost can't be 0 or negative. Enter correct cost: ");
-				cruiseCost = in.readline(); 
+				cruiseCost = Integer.parseInt(in.readLine()); 
 			}
 			
 			System.out.print("\tEnter cruises sold: "); 
-			cruiseSold = in.readline();
-			while(!(cruiseSold >= 0) {
+			cruiseSold = Integer.parseInt(in.readLine());
+			while(!(cruiseSold >= 0)) {
 				System.out.print("\tCruises sold must be positive. Enter correct cruises sold: "); 
-				cruiseSold = in.readline(); 
+				cruiseSold = Integer.parseInt(in.readLine()); 
 			}
 			      
 			System.out.print("\tEnter departure year: ");
-			year = in.readline(); 
+			year = Integer.parseInt(in.readLine()); 
 			System.out.print("\tEnter departure month: "); 
-			month = in.readline(); 
-			while(!(month >= 1 && month <= 12) {
+			month = Integer.parseInt(in.readLine()); 
+			while(!(month >= 1 && month <= 12)) {
 				System.out.print("\t Months must be between 1 and 12. Enter correct month: ");
-				month = in.readline();
+				month = Integer.parseInt(in.readLine());
 			}
 			      
 			System.out.print("\tEnter departure day: "); 
-			day = in.readline(); 
-			while(!(day >= 1 && day <= 31) {
+			day = Integer.parseInt(in.readLine()); 
+			while(!(day >= 1 && day <= 31)) {
 				System.out.print("\t Days must be between 1 and 31. Enter correct day: "); 
-				day = in.readline(); 
+				day = Integer.parseInt(in.readLine()); 
 			}
-			depDate = year + '-' + month + '-' + day; 
+			depDate = year + '-' + month + '-' + toString(day); 
 			      
 			System.out.print("\tEnter arrival year: ");
-			year = in.readline(); 
+			year = Integer.parseInt(in.readLine()); 
 			System.out.print("\tEnter arrival month: "); 
-			month = in.readline(); 
-			while(!(month >= 1 && month <= 12) {
+			month = Integer.parseInt(in.readLine()); 
+			while(!(month >= 1 && month <= 12)) {
 				System.out.print("\t Months must be between 1 and 12. Enter correct month: ");
-				month = in.readline();
+				month = Integer.parseInt(in.readLine());
 			}
 			      
 			System.out.print("\tEnter arrival day: "); 
-			day = in.readline(); 
-			while(!(day >= 1 && day <= 31) {
+			day = Integer.parseInt(in.readLine()); 
+			while(!(day >= 1 && day <= 31)) {
 				System.out.print("\t Days must be between 1 and 31. Enter correct day: "); 
-				day = in.readline(); 
+				day = Integer.parseInt(in.readLine()); 
 			}
 			      
-			arrDate = year + '-' + month + '-' + day; 
+			arrDate = year + '-' + month + '-' + toString(day); 
 			      
 			System.out.print("\tEnter arrival port: ");
-			arrPort = in.readline(); 
+			arrPort = in.readLine(); 
 			
 			System.out.print("\t Enter departure port: "); 
-			depPort = in.readline(); 
+			depPort = in.readLine(); 
 			      
 			String query = "INSERT INTO Cruise (cnum, cost, num_sold, num_stops, actual_departure_date, actual_arrival_date, arrival_port, departure_port) VALUES (" + cruiseNum + ',' + cruiseCost + ',' + cruiseSold + ',' + cruiseStops + ',' + depDate + ',' + arrDate + ',' + arrPort + ',' + depPort + ')';
 			esql.executeQuery(query);
