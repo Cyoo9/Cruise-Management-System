@@ -3,7 +3,7 @@ ON Customer
 USING BTREE
 (id);
 
-CREATE INDEX reservation_customer_id
+CREATE INDEX reservation_cruise_id
 ON Reservation
 USING BTREE
 (cid);
