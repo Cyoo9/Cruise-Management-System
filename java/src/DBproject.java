@@ -469,12 +469,68 @@ public class DBproject{
 	}
 
 	public static void ListNumberOfAvailableSeats(DBproject esql) {//5
-		// For Cruise number and date, find the number of availalbe seats (i.e. total Ship capacity minus booked seats )
-		
+		// For Cruise number and date, find the number of available seats (i.e. total Ship capacity minus booked seats )
+		try {
+			// Cruise(cnum, cost, num_sold,, num_stops, actual_departure_date, actual_arrival_date
+			//        arrival_port, departure_port)
+			// Ship(id, make, model, age, seats)
+			
+			// need to check if cruise exists
+			// assuming "date" means departure date
+			// need to check if cruise departed already
+			
+			int cnum, depDate;
+			int year, month, day;
+			
+			System.out.print("\tEnter cruise number: "); 
+			cnum = Integer.parseInt(in.readLine()); 
+			
+			//need to create a function to parse and verify date to use throughout program!
+			System.out.print("\tEnter departure year: ");
+			year = Integer.parseInt(in.readLine()); 
+			System.out.print("\tEnter departure month: "); 
+			month = Integer.parseInt(in.readLine()); 
+			while(!(month >= 1 && month <= 12)) {
+				System.out.print("\t Months must be between 1 and 12. Enter correct month: ");
+				month = Integer.parseInt(in.readLine());
+			}
+			      
+			System.out.print("\tEnter departure day: "); 
+			day = Integer.parseInt(in.readLine()); 
+			while(!(day >= 1 && day <= 31)) {
+				System.out.print("\t Days must be between 1 and 31. Enter correct day: "); 
+				day = Integer.parseInt(in.readLine()); 
+			}
+			depDate = year + '-' + month + '-' + day + ""; 
+			
+			// total ship capacity
+			// also check if cruise with exists?
+			String searchShipQuery = "SELECT S.seats " +
+						 "FROM Ship S, CruiseInfo CI " +
+						 "WHERE CI.ship_id = S.id AND CI.cruise_id = " + cnum + ";";
+			esql.executeQuery(searchShipQuery);
+			
+			// need to get result from above query to subtract below
+			
+			// booked seats
+			// also output if cruise full?
+			String bookedSeatsQuery = "SELECT COUNT(R.rnum) " + 
+						  "FROM Reservation R " +
+						  "WHERE R.status = 'R' AND R.cid = " + cnum + ";";
+			esql.executeQuery(bookedSeatsQuery);
+			
+		} catch (Exception e) {
+			System.err.println(e.getMessage()); 
+		}
 	}
 
 	public static void ListsTotalNumberOfRepairsPerShip(DBproject esql) {//6
 		// Count number of repairs per Ships and list them in descending order
+		try {
+			
+		} catch (Exception e) {
+			System.err.println(e.getMessage()); 
+		}
 	}
 
 	
