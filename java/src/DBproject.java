@@ -537,7 +537,7 @@ public class DBproject{
 	public static void FindPassengersCountWithStatus(DBproject esql) {//7
 		// Find how many passengers there are with a status (i.e. W,C,R) and list that number.
 		try {
-			String query = "SELECT COUNT(Customer.id) FROM Customer, Reservation WHERE Customer.id = Reservation.cid AND (Reservation.status = 'W' OR Reservation.status = 'C' OR Reservation.status = 'R')";
+			String query = "SELECT COUNT(Customer.id) FROM Customer, Reservation WHERE Customer.id = Reservation.ccid AND (Reservation.status = 'W' OR Reservation.status = 'C' OR Reservation.status = 'R')";
 			int rowCount = esql.executeQuery(query);
 			System.out.println ("total customers: " + rowCount);
 		} catch(Exception e) {
