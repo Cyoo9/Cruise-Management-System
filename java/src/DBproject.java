@@ -393,9 +393,17 @@ public class DBproject{
 			
 			System.out.print("\tEnter ship age: ");
 			shipage = Integer.parseInt(in.readLine());
+			while(shipage < 0) {
+				System.out.println("\tShip age cannot be negative: ");
+				shipage = Integer.parseInt(in.readLine()); 
+			}
 			
 			System.out.print("\tEnter number of seats: ");
 			shipseats = Integer.parseInt(in.readLine());
+			while(!(shipseats > 0 && shipseats < 500)) {
+				System.out.print("\tNumber of seats must be between 0 and 500: ");
+				shipseats = Integer.parseInt(in.readLine()); 
+			}
 			
 			String query = "INSERT INTO Ship (id, make, model, age, seats) VALUES (" + shipid + ",'" + shipmake + "'," +  "'" + shipmodel + "'," + shipage + ',' + shipseats + ')';
 			esql.executeQuery(query);  //insert the ship
@@ -451,30 +459,44 @@ public class DBproject{
 			     
 			System.out.print("\tEnter cruise stops: ");
 			cruiseStops = Integer.parseInt(in.readLine());
-			 
+			while(cruiseStops < 0) {
+				System.out.print("\tNumber of cruise stops cannot be negative: ");
+				cruiseStops = Integer.parseInt(in.readLine());
+			}
+			
 			System.out.print("\tEnter departure year: ");
 			year = Integer.parseInt(in.readLine()); 
+			whlie(year < 0) {
+				System.out.print("\tYear must be greater or equal to 0: ");
+				year = Integer.parseInt(in.readLine()); 
+			}
+			
 			System.out.print("\tEnter departure month: "); 
 			month = Integer.parseInt(in.readLine()); 
 			while(!(month >= 1 && month <= 12)) {
-				System.out.print("\t Months must be between 1 and 12. Enter correct month: ");
+				System.out.print("\tMonths must be between 1 and 12. Enter correct month: ");
 				month = Integer.parseInt(in.readLine());
 			}
 			      
 			System.out.print("\tEnter departure day: "); 
 			day = Integer.parseInt(in.readLine()); 
 			while(!(day >= 1 && day <= 31)) {
-				System.out.print("\t Days must be between 1 and 31. Enter correct day: "); 
+				System.out.print("\tDays must be between 1 and 31. Enter correct day: "); 
 				day = Integer.parseInt(in.readLine()); 
 			}
 			depDate = Integer.toString(year) + '-' + Integer.toString(month) + '-' + Integer.toString(day); 
 			      
 			System.out.print("\tEnter arrival year: ");
 			year = Integer.parseInt(in.readLine()); 
+			whlie(year < 0) {
+				System.out.print("\tYear must be greater or equal to 0: ");
+				year = Integer.parseInt(in.readLine()); 
+			}
+			
 			System.out.print("\tEnter arrival month: "); 
 			month = Integer.parseInt(in.readLine()); 
 			while(!(month >= 1 && month <= 12)) {
-				System.out.print("\t Months must be between 1 and 12. Enter correct month: ");
+				System.out.print("\tMonths must be between 1 and 12. Enter correct month: ");
 				month = Integer.parseInt(in.readLine());
 			}
 			      
@@ -490,7 +512,7 @@ public class DBproject{
 			System.out.print("\tEnter arrival port: ");
 			arrPort = in.readLine(); 
 			
-			System.out.print("\t Enter departure port: "); 
+			System.out.print("\tEnter departure port: "); 
 			depPort = in.readLine(); 
 			      
 			String query = "INSERT INTO Cruise (cnum, cost, num_sold, num_stops, actual_departure_date, actual_arrival_date, arrival_port, departure_port) VALUES (" + cruiseNum + ',' + cruiseCost + ',' + cruiseSold + ',' + cruiseStops + ",'" + depDate + "','" + arrDate + "','" + arrPort + "','" + depPort + "')"; 
@@ -627,6 +649,10 @@ public class DBproject{
 			String status; 
 			System.out.println("Enter status: ");
 			status = in.readLine(); 
+			while(status != 'W' && status != 'R' && status != 'C') {
+				System.out.println("Invalid status. Choose from W,R,C: ");
+				status = in.readLine(); 
+			}
 			
 			String query = "SELECT COUNT(Customer.id) FROM Customer, Reservation WHERE Customer.id = Reservation.ccid AND Reservation.status =" + "'" + status + "'";
 			esql.executeQueryAndPrintResult(query);
