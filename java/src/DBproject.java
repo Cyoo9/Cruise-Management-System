@@ -294,6 +294,27 @@ public class DBproject{
 		}while (true);
 		return input;
 	}//end readChoice
+	
+	public static String parseDate(String datePrefix) {
+		System.out.print("\tEnter " + datePrefix + " year: ");
+		year = in.readLine(); 
+		
+		System.out.print("\tEnter " + datePrefix + " month: "); 
+		month = in.readLine(); 
+		while(!(month >= 1 && month <= 12)) {
+			System.out.print("\t Months must be between 1 and 12. Enter correct month: ");
+			month = in.readLine();
+		}
+			      
+		System.out.print("\tEnter " + datePrefix + " day: "); 
+		day = in.readLine(); 
+		while(!(day >= 1 && day <= 31)) {
+			System.out.print("\t Days must be between 1 and 31. Enter correct day: "); 
+			day = in.readLine(); 
+		}
+		
+		return(year + "-" + month + "-" + day);
+	}
 
 	public static void AddShip(DBproject esql) {//1
 		try {
