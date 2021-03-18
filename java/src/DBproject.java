@@ -590,7 +590,7 @@ public class DBproject{
 			// also check if cruise with exists?
 			String searchShipQuery = "SELECT S.seats " +
 						 "FROM Ship S, CruiseInfo CI " +
-						 "WHERE CI.ship_id = S.id AND CI.cruise_id = " + cnum + ";";
+						 "WHERE CI.ship_id = S.id AND CI.cruise_id = " + cnum;
 			esql.executeQuery(searchShipQuery);
 			
 			// need to get result from above query to subtract below
@@ -599,7 +599,7 @@ public class DBproject{
 			// also output if cruise full?
 			String bookedSeatsQuery = "SELECT COUNT(R.rnum) " + 
 						  "FROM Reservation R " +
-						  "WHERE R.status = 'R' AND R.cid = " + cnum + ";";
+						  "WHERE R.status = 'R' AND R.cid = " + cnum;
 			esql.executeQuery(bookedSeatsQuery);
 			
 		} catch (Exception e) {
@@ -613,7 +613,7 @@ public class DBproject{
 			String query = "SELECT COUNT(R.rid) as repair_count " + 
 					"FROM Repairs R " +
 					"GROUP BY R.ship_id " +
-					"ORDER BY repair_count DESC;";
+					"ORDER BY repair_count DESC";
 			esql.executeQueryAndPrintResult(query);
 		} catch (Exception e) {
 			System.err.println(e.getMessage()); 
