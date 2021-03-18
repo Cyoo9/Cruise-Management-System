@@ -296,7 +296,7 @@ public class DBproject{
 		return input;
 	}//end readChoice
 	
-	public static String parseDate(String datePrefix) {
+	/* public static String parseDate(String datePrefix) {
 		HashMap<String, String> months = new HashMap<String, String>();
 		
 		months.put("january", "1");
@@ -342,7 +342,7 @@ public class DBproject{
 			System.out.print("\tEnter " + datePrefix + " year: ");
 			year = in.readLine();
 			
-			if (!(year.matches("^[0-9]{4}$")) {
+			if (!(year.matches("^[0-9]{4}$"))) {
 				System.out.print("\tInvalid year! Please enter the correct 4-digit year. ");
 				year = null;
 			}
@@ -375,7 +375,7 @@ public class DBproject{
 		}
 		
 		return(year + "-" + month + "-" + day);
-	}
+	} */
 
 	public static void AddShip(DBproject esql) {//1
 		try {
@@ -466,7 +466,7 @@ public class DBproject{
 			
 			System.out.print("\tEnter departure year: ");
 			year = Integer.parseInt(in.readLine()); 
-			whlie(year < 0) {
+			while(year < 0) {
 				System.out.print("\tYear must be greater or equal to 0: ");
 				year = Integer.parseInt(in.readLine()); 
 			}
@@ -488,7 +488,7 @@ public class DBproject{
 			      
 			System.out.print("\tEnter arrival year: ");
 			year = Integer.parseInt(in.readLine()); 
-			whlie(year < 0) {
+			while(year < 0) {
 				System.out.print("\tYear must be greater or equal to 0: ");
 				year = Integer.parseInt(in.readLine()); 
 			}
@@ -649,7 +649,7 @@ public class DBproject{
 			String status; 
 			System.out.println("Enter status: ");
 			status = in.readLine(); 
-			while(status != 'W' && status != 'R' && status != 'C') {
+			while(status != "W"  && status != "R" && status != "C") {
 				System.out.println("Invalid status. Choose from W,R,C: ");
 				status = in.readLine(); 
 			}
