@@ -343,7 +343,7 @@ public class DBproject{
 			year = in.readLine();
 			
 			if (!(year.matches("^[0-9]{4}$")) {
-				System.out.print("\tInvalid year! Enter the correct 4-digit year: ");
+				System.out.print("\tInvalid year! Please enter the correct 4-digit year. ");
 				year = null;
 			}
 		}
@@ -354,7 +354,7 @@ public class DBproject{
 			
 			if (months.get(month.toLowerCase()) == null) {
 				if (!(month.matches("^(0{0,1}[1-9]|1[0-2])$")) {
-					System.out.print("\tInvalid month! Months must be their full names, or a two-digit number between 1 and 12. Enter the correct month: ");
+					System.out.print("\tInvalid month! Months must be their full names, or a two-digit number between 1 and 12. Please enter the correct month. ");
 					month = null;
 			}
 		}
@@ -363,9 +363,15 @@ public class DBproject{
 			System.out.print("\tEnter " + datePrefix + " day: "); 
 			day = in.readLine(); 
 		
-			while(!(day >= 1 && day <= 31)) {
-			System.out.print("\t Days must be between 1 and 31. Enter correct day: "); 
-			day = in.readLine(); 
+			if (!(month.matches("^(0{0,1}[1-9]|[12][0-9]|3[01])$")) {
+				System.out.print("\tInvalid day! Please enter the correct 2-digit day. ");
+				day = null;
+			}
+			    
+			if (Integer.parseInt(day) > days.get(day)) { 
+				System.out.print("\tInvalid day! Please enter the correct 2-digit day. ");
+				day = null;
+			}
 		}
 		
 		return(year + "-" + month + "-" + day);
