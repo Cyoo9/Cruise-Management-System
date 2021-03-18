@@ -296,7 +296,7 @@ public class DBproject{
 		return input;
 	}//end readChoice
 	
-	/* public static String parseDate(String datePrefix) {
+	 public static String parseDate(String datePrefix) {
 		HashMap<String, String> months = new HashMap<String, String>();
 		
 		months.put("january", "1");
@@ -312,7 +312,7 @@ public class DBproject{
 		months.put("november", "11");
 		months.put("december", "12");
 		
-		HashMap<String, int> days = new HashMap<String, int>();
+		HashMap<String, Integer> days = new HashMap<String, Integer>();
 		
 		days.put("1", 31);
 		days.put("01", 31);
@@ -336,9 +336,11 @@ public class DBproject{
 		days.put("11", 30);
 		days.put("12", 31);
 		
-		String year, month, day;
+		String year = "";
+		String month = "";
+		String day = "";
 		
-		while (year == null) {
+		while (year == "") {
 			System.out.print("\tEnter " + datePrefix + " year: ");
 			year = in.readLine();
 			
@@ -348,7 +350,7 @@ public class DBproject{
 			}
 		}
 		
-		while (month == null) {
+		while (month == "") {
 			System.out.print("\tEnter " + datePrefix + " month: "); 
 			month = in.readLine();
 			
@@ -356,10 +358,11 @@ public class DBproject{
 				if (!(month.matches("^(0{0,1}[1-9]|1[0-2])$"))) {
 					System.out.print("\tInvalid month! Months must be their full names, or a two-digit number between 1 and 12. Please enter the correct month. ");
 					month = null;
+				}
 			}
 		}
 				    
-		while (day == null) {      
+		while (day == "") {      
 			System.out.print("\tEnter " + datePrefix + " day: "); 
 			day = in.readLine(); 
 		
@@ -375,7 +378,7 @@ public class DBproject{
 		}
 		
 		return(year + "-" + month + "-" + day);
-	} */
+	} 
 
 	public static void AddShip(DBproject esql) {//1
 		try {
