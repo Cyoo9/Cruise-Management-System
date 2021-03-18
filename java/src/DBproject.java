@@ -376,8 +376,7 @@ public class DBproject{
 				day = null;
 			}
 		}
-		
-		return(year + "-" + month + "-" + day);
+		return(year + "-" + month + "-" + day);	
 	} 
 
 	public static void AddShip(DBproject esql) {//1
