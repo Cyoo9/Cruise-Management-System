@@ -23,6 +23,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * This class defines a simple embedded SQL utility class that is designed to
@@ -296,19 +297,73 @@ public class DBproject{
 	}//end readChoice
 	
 	public static String parseDate(String datePrefix) {
-		System.out.print("\tEnter " + datePrefix + " year: ");
-		year = in.readLine(); 
+		HashMap<String, String> months = new HashMap<String, String>();
 		
-		System.out.print("\tEnter " + datePrefix + " month: "); 
-		month = in.readLine(); 
-		while(!(month >= 1 && month <= 12)) {
-			System.out.print("\t Months must be between 1 and 12. Enter correct month: ");
-			month = in.readLine();
+		months.put("january", "1");
+		months.put("february", "2");
+		months.put("march", "3");
+		months.put("april", "4");
+		months.put("may", "5");
+		months.put("june", "6");
+		months.put("july", "7");
+		months.put("august", "8");
+		months.put("september", "9");
+		months.put("october", "10");
+		months.put("november", "11");
+		months.put("december", "12");
+		
+		HashMap<String, int> days = new HashMap<String, int>();
+		
+		days.put("1", 31);
+		days.put("01", 31);
+		days.put("2", 28);
+		days.put("02", 28);
+		days.put("3", 31);
+		days.put("03", 31);
+		days.put("4", 30);
+		days.put("04", 30);
+		days.put("5", 31);
+		days.put("05", 31);
+		days.put("6", 30);
+		days.put("06", 30);
+		days.put("7", 31);
+		days.put("07", 31);
+		days.put("8", 31);
+		days.put("08", 31);
+		days.put("9", 30);
+		days.put("09", 30);
+		days.put("10", 31);
+		days.put("11", 30);
+		days.put("12", 31);
+		
+		String year, month, day;
+		
+		while (year == null) {
+			System.out.print("\tEnter " + datePrefix + " year: ");
+			year = in.readLine();
+			
+			if (!(year.matches("^[0-9]{4}$")) {
+				System.out.print("\tInvalid year! Enter the correct 4-digit year: ");
+				year = null;
+			}
 		}
-			      
-		System.out.print("\tEnter " + datePrefix + " day: "); 
-		day = in.readLine(); 
-		while(!(day >= 1 && day <= 31)) {
+		
+		while (month == null) {
+			System.out.print("\tEnter " + datePrefix + " month: "); 
+			month = in.readLine();
+			
+			if (months.get(month.toLowerCase()) == null) {
+				if (!(month.matches("^(0{0,1}[1-9]|1[0-2])$")) {
+					System.out.print("\tInvalid month! Months must be their full names, or a two-digit number between 1 and 12. Enter the correct month: ");
+					month = null;
+			}
+		}
+				    
+		while (day == null) {      
+			System.out.print("\tEnter " + datePrefix + " day: "); 
+			day = in.readLine(); 
+		
+			while(!(day >= 1 && day <= 31)) {
 			System.out.print("\t Days must be between 1 and 31. Enter correct day: "); 
 			day = in.readLine(); 
 		}
