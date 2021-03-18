@@ -543,7 +543,7 @@ public class DBproject{
 			status = in.readLine(); 
 			
 			String query = "SELECT COUNT(Customer.id) FROM Customer, Reservation WHERE Customer.id = Reservation.ccid AND Reservation.status =" + "'" + status + "'";
-			int rowCount = esql.executeQuery(query);
+			int rowCount = esql.executeQueryAndPrintResult(query);
 			System.out.println ("total customers: " + rowCount);
 		} catch(Exception e) {
 			System.err.println(e.getMessage()); 
