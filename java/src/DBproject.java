@@ -353,7 +353,7 @@ public class DBproject{
 			month = in.readLine();
 			
 			if (months.get(month.toLowerCase()) == null) {
-				if (!(month.matches("^(0{0,1}[1-9]|1[0-2])$")) {
+				if (!(month.matches("^(0{0,1}[1-9]|1[0-2])$"))) {
 					System.out.print("\tInvalid month! Months must be their full names, or a two-digit number between 1 and 12. Please enter the correct month. ");
 					month = null;
 			}
@@ -363,7 +363,7 @@ public class DBproject{
 			System.out.print("\tEnter " + datePrefix + " day: "); 
 			day = in.readLine(); 
 		
-			if (!(month.matches("^(0{0,1}[1-9]|[12][0-9]|3[01])$")) {
+			if (!(month.matches("^(0{0,1}[1-9]|[12][0-9]|3[01])$"))) {
 				System.out.print("\tInvalid day! Please enter the correct 2-digit day. ");
 				day = null;
 			}
