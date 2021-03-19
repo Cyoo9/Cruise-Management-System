@@ -297,86 +297,91 @@ public class DBproject{
 	}//end readChoice
 	
 	 public static String parseDate(String datePrefix) {
-		HashMap<String, String> months = new HashMap<String, String>();
+		try {
+			HashMap<String, String> months = new HashMap<String, String>();
 		
-		months.put("january", "1");
-		months.put("february", "2");
-		months.put("march", "3");
-		months.put("april", "4");
-		months.put("may", "5");
-		months.put("june", "6");
-		months.put("july", "7");
-		months.put("august", "8");
-		months.put("september", "9");
-		months.put("october", "10");
-		months.put("november", "11");
-		months.put("december", "12");
+			months.put("january", "1");
+			months.put("february", "2");
+			months.put("march", "3");
+			months.put("april", "4");
+			months.put("may", "5");
+			months.put("june", "6");
+			months.put("july", "7");
+			months.put("august", "8");
+			months.put("september", "9");
+			months.put("october", "10");
+			months.put("november", "11");
+			months.put("december", "12");
 		
-		HashMap<String, Integer> days = new HashMap<String, Integer>();
+			HashMap<String, Integer> days = new HashMap<String, Integer>();
 		
-		days.put("1", 31);
-		days.put("01", 31);
-		days.put("2", 28);
-		days.put("02", 28);
-		days.put("3", 31);
-		days.put("03", 31);
-		days.put("4", 30);
-		days.put("04", 30);
-		days.put("5", 31);
-		days.put("05", 31);
-		days.put("6", 30);
-		days.put("06", 30);
-		days.put("7", 31);
-		days.put("07", 31);
-		days.put("8", 31);
-		days.put("08", 31);
-		days.put("9", 30);
-		days.put("09", 30);
-		days.put("10", 31);
-		days.put("11", 30);
-		days.put("12", 31);
+			days.put("1", 31);
+			days.put("01", 31);
+			days.put("2", 28);
+			days.put("02", 28);
+			days.put("3", 31);
+			days.put("03", 31);
+			days.put("4", 30);
+			days.put("04", 30);
+			days.put("5", 31);
+			days.put("05", 31);
+			days.put("6", 30);
+			days.put("06", 30);
+			days.put("7", 31);
+			days.put("07", 31);
+			days.put("8", 31);
+			days.put("08", 31);
+			days.put("9", 30);
+			days.put("09", 30);
+			days.put("10", 31);
+			days.put("11", 30);
+			days.put("12", 31);
 		
-		String year = "";
-		String month = "";
-		String day = "";
-		
-		while (year == "") {
-			System.out.print("\tEnter " + datePrefix + " year: ");
-			year = in.readLine();
+			String year = "";
+			String month = "";
+			String day = "";
 			
-			if (!(year.matches("^[0-9]{4}$"))) {
-				System.out.print("\tInvalid year! Please enter the correct 4-digit year. ");
-				year = null;
-			}
-		}
-		
-		while (month == "") {
-			System.out.print("\tEnter " + datePrefix + " month: "); 
-			month = in.readLine();
+			while (year == "") {
+				System.out.print("\tEnter " + datePrefix + " year: ");
+				year = in.readLine();
 			
-			if (months.get(month.toLowerCase()) == null) {
-				if (!(month.matches("^(0{0,1}[1-9]|1[0-2])$"))) {
-					System.out.print("\tInvalid month! Months must be their full names, or a two-digit number between 1 and 12. Please enter the correct month. ");
-					month = null;
+				if (!(year.matches("^[0-9]{4}$"))) {
+					System.out.print("\tInvalid year! Please enter the correct 4-digit year. ");
+					year = null;
 				}
 			}
-		}
+			
+			while (month == "") {
+				System.out.print("\tEnter " + datePrefix + " month: "); 
+				month = in.readLine();
+			
+				if (months.get(month.toLowerCase()) == null) {
+					if (!(month.matches("^(0{0,1}[1-9]|1[0-2])$"))) {
+						System.out.print("\tInvalid month! Months must be their full names, or a two-digit number between 1 and 12. Please enter the correct month. ");
+						month = null;
+					}
+				}
+			}
 				    
-		while (day == "") {      
-			System.out.print("\tEnter " + datePrefix + " day: "); 
-			day = in.readLine(); 
+			while (day == "") {      
+				System.out.print("\tEnter " + datePrefix + " day: "); 
+				day = in.readLine(); 
 		
-			if (!(month.matches("^(0{0,1}[1-9]|[12][0-9]|3[01])$"))) {
-				System.out.print("\tInvalid day! Please enter the correct 2-digit day. ");
-				day = null;
-			}
+				if (!(month.matches("^(0{0,1}[1-9]|[12][0-9]|3[01])$"))) {
+					System.out.print("\tInvalid day! Please enter the correct 2-digit day. ");
+					day = null;
+				}
 			    
-			if (Integer.parseInt(day) > days.get(day)) { 
-				System.out.print("\tInvalid day! Please enter the correct 2-digit day. ");
-				day = null;
+				if (Integer.parseInt(day) > days.get(day)) { 
+					System.out.print("\tInvalid day! Please enter the correct 2-digit day. ");
+					day = null;
+				}
 			}
+			
+			return(year + "-" + month + "-" + day);	
+		} catch (Exception e) {
+			System.err.println(e.getMessage()); 
 		}
-		return(year + "-" + month + "-" + day);	
 	} 
 
 	public static void AddShip(DBproject esql) {//1
