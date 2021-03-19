@@ -377,11 +377,11 @@ public class DBproject{
 					day = null;
 				}
 			}
-			
-			return(year + "-" + month + "-" + day);	
 		} catch (Exception e) {
 			System.err.println(e.getMessage()); 
 		}
+		 
+		return(year + "-" + month + "-" + day);	
 	} 
 
 	public static void AddShip(DBproject esql) {//1
