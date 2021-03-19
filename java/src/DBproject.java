@@ -344,21 +344,24 @@ public class DBproject{
 			while (year == "") {
 				System.out.print("\tEnter " + datePrefix + " year: ");
 				year = in.readLine();
-			
+				
+				//check if year is 4 digits
 				if (!(year.matches("^[0-9]{4}$"))) {
 					System.out.print("\tInvalid year! Please enter the correct 4-digit year. ");
-					year = null;
+					year = "";
 				}
 			}
 			
 			while (month == "") {
 				System.out.print("\tEnter " + datePrefix + " month: "); 
 				month = in.readLine();
-			
+				
+				//check if full month input
 				if (months.get(month.toLowerCase()) == null) {
+					//check if month is between 01-12
 					if (!(month.matches("^(0{0,1}[1-9]|1[0-2])$"))) {
 						System.out.print("\tInvalid month! Months must be their full names, or a two-digit number between 1 and 12. Please enter the correct month. ");
-						month = null;
+						month = "";
 					}
 				}
 			}
@@ -367,14 +370,16 @@ public class DBproject{
 				System.out.print("\tEnter " + datePrefix + " day: "); 
 				day = in.readLine(); 
 		
-				if (!(month.matches("^(0{0,1}[1-9]|[12][0-9]|3[01])$"))) {
+				//check if day is between 01-31
+				if (!(day.matches("^(0{0,1}[1-9]|[12][0-9]|3[01])$"))) {
 					System.out.print("\tInvalid day! Please enter the correct 2-digit day. ");
-					day = null;
+					day = "";
 				}
 			    
+				//check if day is valid for month
 				if (Integer.parseInt(day) > days.get(day)) { 
 					System.out.print("\tInvalid day! Please enter the correct 2-digit day. ");
-					day = null;
+					day = "";
 				}
 			}
 		} catch (Exception e) {
