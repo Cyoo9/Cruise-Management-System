@@ -501,7 +501,7 @@ public class DBproject{
 			} */
 			//depDate = Integer.toString(year) + '-' + Integer.toString(month) + '-' + Integer.toString(day); 
 			
-			depDate = parseString("departureDate");
+			depDate = parseDate("departure");
 			
 			/*System.out.print("\tEnter arrival year: ");
 			year = Integer.parseInt(in.readLine()); 
@@ -525,7 +525,7 @@ public class DBproject{
 			}*/
 			      
 			//arrDate = Integer.toString(year) + '-' + Integer.toString(month) + '-' + Integer.toString(day); 
-			arrDate = parseDate("arrivalDate");
+			arrDate = parseDate("arrival");
 			
 			System.out.print("\tEnter arrival port: ");
 			arrPort = in.readLine(); 
