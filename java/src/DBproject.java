@@ -297,6 +297,10 @@ public class DBproject{
 	}//end readChoice
 	
 	 public static String parseDate(String datePrefix) {
+		String year = "";
+		String month = "";
+		String day = "";
+		 
 		try {
 			HashMap<String, String> months = new HashMap<String, String>();
 		
@@ -336,10 +340,6 @@ public class DBproject{
 			days.put("10", 31);
 			days.put("11", 30);
 			days.put("12", 31);
-		
-			String year = "";
-			String month = "";
-			String day = "";
 			
 			while (year == "") {
 				System.out.print("\tEnter " + datePrefix + " year: ");
