@@ -452,7 +452,8 @@ public class DBproject{
 
 	public static void AddCruise(DBproject esql) {//3
 		try {
-			int cruiseNum, cruiseSold, cruiseStops, month, year, day, cruiseCost;
+			int cruiseNum, cruiseSold, cruiseStops, cruiseCost;
+			//int month, year, day;
 			String depDate, arrDate, arrPort, depPort;
 			System.out.print("\tEnter cruise number: ");
 			cruiseNum = Integer.parseInt(in.readLine());
@@ -478,7 +479,7 @@ public class DBproject{
 				cruiseStops = Integer.parseInt(in.readLine());
 			}
 			
-			System.out.print("\tEnter departure year: ");
+			/*System.out.print("\tEnter departure year: ");
 			year = Integer.parseInt(in.readLine()); 
 			while(year < 0) {
 				System.out.print("\tYear must be greater or equal to 0: ");
@@ -497,10 +498,12 @@ public class DBproject{
 			while(!(day >= 1 && day <= 31)) {
 				System.out.print("\tDays must be between 1 and 31. Enter correct day: "); 
 				day = Integer.parseInt(in.readLine()); 
-			}
-			depDate = Integer.toString(year) + '-' + Integer.toString(month) + '-' + Integer.toString(day); 
-			      
-			System.out.print("\tEnter arrival year: ");
+			} */
+			//depDate = Integer.toString(year) + '-' + Integer.toString(month) + '-' + Integer.toString(day); 
+			
+			depDate = parseString("departureDate");
+			
+			/*System.out.print("\tEnter arrival year: ");
 			year = Integer.parseInt(in.readLine()); 
 			while(year < 0) {
 				System.out.print("\tYear must be greater or equal to 0: ");
@@ -519,10 +522,11 @@ public class DBproject{
 			while(!(day >= 1 && day <= 31)) {
 				System.out.print("\t Days must be between 1 and 31. Enter correct day: "); 
 				day = Integer.parseInt(in.readLine()); 
-			}
+			}*/
 			      
-			arrDate = Integer.toString(year) + '-' + Integer.toString(month) + '-' + Integer.toString(day); 
-			      
+			//arrDate = Integer.toString(year) + '-' + Integer.toString(month) + '-' + Integer.toString(day); 
+			arrDate = parseDate("arrivalDate");
+			
 			System.out.print("\tEnter arrival port: ");
 			arrPort = in.readLine(); 
 			
