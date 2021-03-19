@@ -363,6 +363,8 @@ public class DBproject{
 						System.out.print("\tInvalid month! Months must be their full names, or a two-digit number between 1 and 12. Please enter the correct month. ");
 						month = "";
 					}
+				} else {
+					month = months.get(month.toLowerCase());
 				}
 			}
 				    
