@@ -613,23 +613,7 @@ public class DBproject{
 			System.out.print("\tEnter cruise number: "); 
 			cnum = Integer.parseInt(in.readLine()); 
 			
-			//need to create a function to parse and verify date to use throughout program!
-			System.out.print("\tEnter departure year: ");
-			year = Integer.parseInt(in.readLine()); 
-			System.out.print("\tEnter departure month: "); 
-			month = Integer.parseInt(in.readLine()); 
-			while(!(month >= 1 && month <= 12)) {
-				System.out.print("\t Months must be between 1 and 12. Enter correct month: ");
-				month = Integer.parseInt(in.readLine());
-			}
-			      
-			System.out.print("\tEnter departure day: "); 
-			day = Integer.parseInt(in.readLine()); 
-			while(!(day >= 1 && day <= 31)) {
-				System.out.print("\t Days must be between 1 and 31. Enter correct day: "); 
-				day = Integer.parseInt(in.readLine()); 
-			}
-			depDate = Integer.toString(year) + '-' + Integer.toString(month) + '-' + Integer.toString(day); 
+			depDate = parseDate("departure");
 			
 			// total ship capacity
 			// also check if cruise with exists?
