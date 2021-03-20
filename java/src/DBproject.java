@@ -621,7 +621,7 @@ public class DBproject{
 			// also check if cruise with exists
 			String searchShipQuery = "SELECT S.seats " +
 						 "FROM Ship S, CruiseInfo CI, Cruise C " +
-						 "WHERE CI.ship_id = S.id AND CI.cruise_id = " + cnum + " AND C.cnum = CI.cruise_id AND C.actual_departure_date = " + depDate;
+						 "WHERE CI.ship_id = S.id AND CI.cruise_id = " + cnum + " AND C.cnum = CI.cruise_id AND C.actual_departure_date = '" + depDate + "'";
 			
 			List<List<String>> shipCapacity = esql.executeQueryAndReturnResult(searchShipQuery);
 			System.out.print("\tShip Capacity: " + shipCapacity.get(0).get(0) + "\n");
