@@ -341,8 +341,6 @@ public class DBproject{
 			days.put("11", 30);
 			days.put("12", 31);
 			
-			System.out.print("\n\tTest1\n");
-			
 			while (year.equals("")) {
 				System.out.print("\tEnter " + datePrefix + " year: ");
 				year = in.readLine();
@@ -359,7 +357,6 @@ public class DBproject{
 				days.put("02", 29);
 			}
 			
-			System.out.print("\n\tTest2\n");
 			
 			while (month.equals("")) {
 				System.out.print("\tEnter " + datePrefix + " month: "); 
@@ -376,10 +373,8 @@ public class DBproject{
 					month = months.get(month.toLowerCase());
 				}
 			}
-			
-			System.out.print("\n\tTest3\n");
 				    
-			while (day.equals("")) {      
+			while (day.equals("")) {
 				System.out.print("\tEnter " + datePrefix + " day: "); 
 				day = in.readLine(); 
 		
@@ -388,15 +383,17 @@ public class DBproject{
 					System.out.print("\tInvalid day! Please enter the correct 2-digit day.\n");
 					day = "";
 				}
-			    
+				
+			    	System.out.print("\n\tTest3\n");
+				
 				//check if day is valid for month
 				if (Integer.parseInt(day) > days.get(day)) { 
 					System.out.print("\tInvalid day! Please enter the correct 2-digit day.\n");
 					day = "";
 				}
+				
+				System.out.print("\n\tTest4\n");
 			}
-			
-			System.out.print("\n\tTest4\n");
 		} catch (Exception e) {
 			System.err.println(e.getMessage()); 
 		}
