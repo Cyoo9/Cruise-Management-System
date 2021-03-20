@@ -12,7 +12,7 @@ These are the assumptions made:
 Documentation on specific features:
 - Error handling for day, month, year.
 - A helper function parseDate was created which validates and takes in date input.
-- Features of parseDate includes checking for the number of days per month, accounting for leap years, and allowing the full English name of the month to be used.
+- Features of parseDate include checking for the number of days per month, accounting for leap years, and allowing the full English name of the month to be used.
 - Error handling for cruise cost, cruise sold, age, number of seats. This mostly checks if the numbers are valid, positive integers.
 - Error handling for correct status, preventing input other than 'W', 'C', or 'R'
 
