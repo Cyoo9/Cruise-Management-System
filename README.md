@@ -15,12 +15,14 @@ Documentation on specific features:
 - Features of parseDate include checking for the number of days per month, accounting for leap years, and allowing the full English name of the month to be used.
 - Error handling for cruise cost, cruise sold, age, number of seats. This mostly checks if the numbers are valid, positive integers.
 - Error handling for correct status, preventing input other than 'W', 'C', or 'R'
+- Indexing and Clustering created for Customer, Reservation, and CruiseInfo to improve speed and efficiency. 
 
 
 # Caleb 
 - Implemented all the add functionalities besides booking a cruise. 
 - Implemented finding passengers count with a specific status grabbing user input.
 - Implemented error handling for status types, date format (commented out to use helper function created by Charles), and integer boundaries for cruise costs, cruise sold, and number of seats.
+- Indexing/Clustering
 # Charles 
 - Implemented parseDate helper function to smoothly validate date input
 - Implemented BookCruise, ListNumberOfAvailableSeats, ListTotalNumberofRepairsPerShip
