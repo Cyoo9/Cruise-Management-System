@@ -629,8 +629,6 @@ public class DBproject{
 				System.out.print("\tCruise not found!\n"); 
 			} else { 
 				String capacity = shipCapacity.get(0).get(0);
-				String seats = bookedSeats.get(0).get(0);
-				int available = Integer.parseInt(capacity) - Integer.parseInt(seats);
 				System.out.print("\tShip Capacity: " + capacity + "\n");
 				// need to get result from above query to subtract below
 			
@@ -639,7 +637,11 @@ public class DBproject{
 						  	"FROM Reservation R " +
 						  	"WHERE R.status = 'R' AND R.cid = " + cnum;
 				List<List<String>> bookedSeats = esql.executeQueryAndReturnResult(bookedSeatsQuery);
+				
+				String seats = bookedSeats.get(0).get(0);
 				System.out.print("\tBooked Seats: " + seats + "\n");
+				
+				int available = Integer.parseInt(capacity) - Integer.parseInt(seats);
 				System.out.print("\tAvailable Seats: " + Integer.toString(available) + "\n");
 			}
 		} catch (Exception e) {
