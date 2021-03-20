@@ -596,7 +596,6 @@ public class DBproject{
 			// if reservation for cruise is full, status = waitlist 'W'
 			// if not full, status = reserved 'R'
 			
-			System.out.println("\t\nTest1\n");
 			
 			String countReservationQuery = "SELECT COUNT(R.rnum) " + 
 						  "FROM Reservation R " +
@@ -604,7 +603,6 @@ public class DBproject{
 			List<List<String>> reservations = esql.executeQueryAndReturnResult(countReservationQuery);
 			String numReservations = reservations.get(0).get(0);
 			
-			System.out.println("\t\nTest2\n");
 			
 			String findSeatsQuery = "SELECT S.seats " +
 						"FROM Ship S, CruiseInfo CI " +
@@ -619,14 +617,10 @@ public class DBproject{
 				status = "R";
 			}
 			
-			System.out.println("\t\nTest3\n");
 			
 			String query = "INSERT INTO Reservation (rnum, ccid, cid, status) VALUES ("
 				+ rnum + "," + ccid + "," + cnum + ",'" + status + "')";
-			esql.executeQueryAndReturnResult("UPDATE Cruise SET num_sold = num_sold + 1 WHERE cnum = " + cnum);
-			
-			System.out.println("\t\nTest4\n");
-			
+			esql.executeQuery("UPDATE Cruise SET num_sold = num_sold + 1 WHERE cnum = " + cnum);
 			esql.executeQuery(query);
 			System.out.println("Reservation inserted successfully!");
 			
