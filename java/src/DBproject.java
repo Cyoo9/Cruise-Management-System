@@ -620,7 +620,7 @@ public class DBproject{
 			
 			String query = "INSERT INTO Reservation (rnum, ccid, cid, status) VALUES ("
 				+ rnum + "," + ccid + "," + cnum + ",'" + status + "')";
-			esql.executeQuery("UPDATE Cruise SET num_sold = num_sold + 1 WHERE cnum = " + cnum);
+			esql.executeUpdate("UPDATE Cruise SET num_sold = num_sold + 1 WHERE cnum = " + cnum);
 			esql.executeQuery(query);
 			System.out.println("Reservation inserted successfully!");
 			
