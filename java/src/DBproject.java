@@ -622,7 +622,7 @@ public class DBproject{
 						 "WHERE CI.ship_id = S.id AND CI.cruise_id = " + cnum;
 			
 			List<List<String>> shipCapacity = esql.executeQueryAndReturnResult(searchShipQuery);
-			System.out.print("\tShip Capacity: " + shipCapacity.get(0).get(0));
+			System.out.print("\tShip Capacity: " + shipCapacity.get(0).get(0) + "\n");
 			// need to get result from above query to subtract below
 			
 			// booked seats
@@ -631,7 +631,7 @@ public class DBproject{
 						  "FROM Reservation R " +
 						  "WHERE R.status = 'R' AND R.cid = " + cnum;
 			List<List<String>> bookedSeats = esql.executeQueryAndReturnResult(bookedSeatsQuery);
-			System.out.print("\tBooked Seats: " + bookedSeats.get(0).get(0));
+			System.out.print("\tBooked Seats: " + bookedSeats.get(0).get(0) + "\n");
 			
 		} catch (Exception e) {
 			System.err.println(e.getMessage()); 
