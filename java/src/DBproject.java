@@ -624,17 +624,21 @@ public class DBproject{
 						 "WHERE CI.ship_id = S.id AND CI.cruise_id = " + cnum + " AND C.cnum = CI.cruise_id AND C.actual_departure_date = '" + depDate + "'";
 			
 			List<List<String>> shipCapacity = esql.executeQueryAndReturnResult(searchShipQuery);
-			System.out.print("\tShip Capacity: " + shipCapacity.get(0).get(0) + "\n");
-			// need to get result from above query to subtract below
 			
-			// booked seats
-			// also output if cruise full?
-			String bookedSeatsQuery = "SELECT COUNT(R.rnum) " + 
-						  "FROM Reservation R " +
-						  "WHERE R.status = 'R' AND R.cid = " + cnum;
-			List<List<String>> bookedSeats = esql.executeQueryAndReturnResult(bookedSeatsQuery);
-			System.out.print("\tBooked Seats: " + bookedSeats.get(0).get(0) + "\n");
+			if (shipCapacity.isEmpty()) {
+				System.out.print("\tCruise not found!\n"); 
+			} else { 
+				System.out.print("\tShip Capacity: " + shipCapacity.get(0).get(0) + "\n");
+				// need to get result from above query to subtract below
 			
+				// booked seats
+				// also output if cruise full?
+				String bookedSeatsQuery = "SELECT COUNT(R.rnum) " + 
+						  	"FROM Reservation R " +
+						  	"WHERE R.status = 'R' AND R.cid = " + cnum;
+				List<List<String>> bookedSeats = esql.executeQueryAndReturnResult(bookedSeatsQuery);
+				System.out.print("\tBooked Seats: " + bookedSeats.get(0).get(0) + "\n");
+			}
 		} catch (Exception e) {
 			System.err.println(e.getMessage()); 
 		}
