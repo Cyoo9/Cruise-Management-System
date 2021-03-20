@@ -652,10 +652,11 @@ public class DBproject{
 	public static void ListsTotalNumberOfRepairsPerShip(DBproject esql) {//6
 		// Count number of repairs per Ships and list them in descending order
 		try {
-			String query = "SELECT COUNT(R.rid) as repair_count " + 
+			String query = "SELECT R.ship_id, COUNT(R.rid) as repair_count " + 
 					"FROM Repairs R " +
 					"GROUP BY R.ship_id " +
 					"ORDER BY repair_count DESC";
+			System.out.print("\tPrinting Ship IDs and repair counts in descending order.");
 			esql.executeQueryAndPrintResult(query);
 		} catch (Exception e) {
 			System.err.println(e.getMessage()); 
