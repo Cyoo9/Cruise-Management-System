@@ -24,4 +24,5 @@ Documentation on specific features:
 # Charles 
 - Implemented parseDate helper function
 - Implemented BookCruise, ListNumberOfAvailableSeats, ListsTotalNumberofRepairsPerShip
+- Implemeneted error handling for verifying if a cruise or customer exists
 - Debugging/Editing
