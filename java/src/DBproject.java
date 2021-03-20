@@ -427,7 +427,7 @@ public class DBproject{
 			}
 			
 			String query = "INSERT INTO Ship (id, make, model, age, seats) VALUES (" + shipid + ",'" + shipmake + "'," +  "'" + shipmodel + "'," + shipage + ',' + shipseats + ')';
-			esql.executeQuery(query);  //insert the ship
+			esql.executeUpdate(query);  //insert the ship
 			System.out.println("Ship inserted successfully!"); 
 			
 		} catch (Exception e) {
@@ -449,7 +449,7 @@ public class DBproject{
 			capNation = in.readLine(); 
 			
 			String query = "INSERT INTO Captain (id, fullname, nationality) VALUES (" + capId + ",'" + capName + "','" + capNation + "')";
-			esql.executeQuery(query);
+			esql.executeUpdate(query);
 			System.out.println("Captain inserted successfully!"); 
 		} catch (Exception e) {
 			System.err.println(e.getMessage()); 
@@ -541,7 +541,7 @@ public class DBproject{
 			depPort = in.readLine(); 
 			      
 			String query = "INSERT INTO Cruise (cnum, cost, num_sold, num_stops, actual_departure_date, actual_arrival_date, arrival_port, departure_port) VALUES (" + cruiseNum + ',' + cruiseCost + ',' + cruiseSold + ',' + cruiseStops + ",'" + depDate + "','" + arrDate + "','" + arrPort + "','" + depPort + "')"; 
-			esql.executeQuery(query);
+			esql.executeUpdate(query);
 			System.out.print("Cruise inserted successfully"); 
 		}
 		catch (Exception e) {
@@ -621,7 +621,7 @@ public class DBproject{
 			String query = "INSERT INTO Reservation (rnum, ccid, cid, status) VALUES ("
 				+ rnum + "," + ccid + "," + cnum + ",'" + status + "')";
 			esql.executeUpdate("UPDATE Cruise SET num_sold = num_sold + 1 WHERE cnum = " + cnum);
-			esql.executeQuery(query);
+			esql.executeUpdate(query);
 			System.out.println("Reservation inserted successfully!");
 			
 		} catch (Exception e) {
