@@ -656,7 +656,7 @@ public class DBproject{
 					"FROM Repairs R " +
 					"GROUP BY R.ship_id " +
 					"ORDER BY repair_count DESC";
-			System.out.print("\tPrinting Ship IDs and repair counts in descending order.");
+			//System.out.print("\tPrinting Ship IDs and repair counts in descending order.");
 			esql.executeQueryAndPrintResult(query);
 		} catch (Exception e) {
 			System.err.println(e.getMessage()); 
