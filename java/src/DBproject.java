@@ -384,11 +384,8 @@ public class DBproject{
 					day = "";
 				}
 				
-			  	System.out.print("\n\tParse Test 1: " + day + "\n");
-				System.out.print("\n\tParse Test 2: " + Integer.toString(days.get(day)) + "\n");
-				
 				//check if day is valid for month
-				if (Integer.parseInt(day) > days.get(day)) { 
+				if (Integer.parseInt(day) > days.get(month)) { 
 					System.out.print("\tInvalid day! Please enter the correct 2-digit day.\n");
 					day = "";
 				}
