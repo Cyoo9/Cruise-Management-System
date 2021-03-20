@@ -23,5 +23,5 @@ Documentation on specific features:
 - Implemented error handling for status types, date format (commented out to use helper function created by Charles), and integer boundaries for cuirse costs, cruise sold, and number of seats.
 # Charles 
 - Implemented parseDate helper function
-- Implemented BookCruise, ListNumberOfAvailableSeats, ListsTotalNumberofrepairsPerShip
+- Implemented BookCruise, ListNumberOfAvailableSeats, ListsTotalNumberofRepairsPerShip
 - Debugging/Editing
