@@ -668,8 +668,8 @@ public class DBproject{
 		try {
 			String status; 
 			System.out.println("Enter status: ");
-			status = in.readLine(); 
-			while(status != "W"  && status != "R" && status != "C") {
+			status = in.readLine();
+			while(!(status.equals("W") || status.equals("R") || status.equals("C"))) {
 				System.out.println("Invalid status. Choose from W,R,C: ");
 				status = in.readLine(); 
 			}
