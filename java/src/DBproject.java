@@ -384,15 +384,14 @@ public class DBproject{
 					day = "";
 				}
 				
-			    	System.out.print("\n\tTest3\n");
+			  	System.out.print("\n\tParse Test 1: " + day + "\n");
+				System.out.print("\n\tParse Test 2: " + Integer.toString(days.get(day)) + "\n");
 				
 				//check if day is valid for month
 				if (Integer.parseInt(day) > days.get(day)) { 
 					System.out.print("\tInvalid day! Please enter the correct 2-digit day.\n");
 					day = "";
 				}
-				
-				System.out.print("\n\tTest4\n");
 			}
 		} catch (Exception e) {
 			System.err.println(e.getMessage()); 
