@@ -393,6 +393,10 @@ public class DBproject{
 			System.err.println(e.getMessage()); 
 		}
 		 
+		System.out.print("\n\t" + year);
+		System.out.print("\n\t" + month);
+		System.out.print("\n\t" + day);
+		 
 		return(year + "-" + month + "-" + day);	
 	} 
 
