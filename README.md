@@ -20,9 +20,9 @@ Documentation on specific features:
 # Caleb 
 - Implemented all the add functionalities besides booking cruise. 
 - Implemented finding passengers count with a specific status grabbing user input.
-- Implemented error handling for status types, date format (commented out to use helper function created by Charles), and integer boundaries for cuirse costs, cruise sold, and number of seats.
+- Implemented error handling for status types, date format (commented out to use helper function created by Charles), and integer boundaries for cruise costs, cruise sold, and number of seats.
 # Charles 
 - Implemented parseDate helper function
 - Implemented BookCruise, ListNumberOfAvailableSeats, ListsTotalNumberofRepairsPerShip
-- Implemeneted error handling for verifying if a cruise or customer exists
+- Implemented error handling for verifying if a cruise or customer exists
 - Debugging/Editing
