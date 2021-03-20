@@ -628,16 +628,19 @@ public class DBproject{
 			if (shipCapacity.isEmpty()) {
 				System.out.print("\tCruise not found!\n"); 
 			} else { 
-				System.out.print("\tShip Capacity: " + shipCapacity.get(0).get(0) + "\n");
+				String capacity = shipCapacity.get(0).get(0);
+				String seats = bookedSeats.get(0).get(0);
+				int available = Integer.parseInt(capacity) - Integer.parseInt(seats);
+				System.out.print("\tShip Capacity: " + capacity + "\n");
 				// need to get result from above query to subtract below
 			
-				// booked seats
-				// also output if cruise full?
+				// booked seats = R reservations
 				String bookedSeatsQuery = "SELECT COUNT(R.rnum) " + 
 						  	"FROM Reservation R " +
 						  	"WHERE R.status = 'R' AND R.cid = " + cnum;
 				List<List<String>> bookedSeats = esql.executeQueryAndReturnResult(bookedSeatsQuery);
-				System.out.print("\tBooked Seats: " + bookedSeats.get(0).get(0) + "\n");
+				System.out.print("\tBooked Seats: " + seats + "\n");
+				System.out.print("\tAvailable Seats: " + Integer.toString(available) + "\n");
 			}
 		} catch (Exception e) {
 			System.err.println(e.getMessage()); 
