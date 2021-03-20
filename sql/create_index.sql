@@ -17,3 +17,8 @@ CREATE INDEX reservation_status
 ON Reservation
 USING BTREE
 (status);
+
+CREATE INDEX cruise_ship_id
+ON CruiseInfo
+USING BTREE;
+(ship_id); 
