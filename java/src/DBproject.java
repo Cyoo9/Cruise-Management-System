@@ -341,7 +341,7 @@ public class DBproject{
 			days.put("11", 30);
 			days.put("12", 31);
 			
-			while (year == "") {
+			while (year.equals("")) {
 				System.out.print("\tEnter " + datePrefix + " year: ");
 				year = in.readLine();
 				
@@ -352,7 +352,7 @@ public class DBproject{
 				}
 			}
 			
-			while (month == "") {
+			while (month.equals("")) {
 				System.out.print("\tEnter " + datePrefix + " month: "); 
 				month = in.readLine();
 				
@@ -368,7 +368,7 @@ public class DBproject{
 				}
 			}
 				    
-			while (day == "") {      
+			while (day.equals("")) {      
 				System.out.print("\tEnter " + datePrefix + " day: "); 
 				day = in.readLine(); 
 		
