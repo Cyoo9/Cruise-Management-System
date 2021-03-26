@@ -1,4 +1,4 @@
-# cs166projectphase3
+# Cruise Management System 
 
 # Assumptions/Documentation:
 In many cases, errors are handled smoothly by preventing the user from continuing until a valid input is made.
